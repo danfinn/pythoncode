@@ -6,10 +6,16 @@ db = sqlite3.connect('database.db')
 #db.execute('insert into person (firstname,lastname,age)values("Dan","Finn",36)')
 #db.execute('update person set firstname = "Daniel" where lastname = "Finn"')
 #contents = db.execute('select * from person')
-removal = db.execute('delete from person where lastname = "Finn"')
-db.commit()
+#removal = db.execute('delete from person where lastname = "Finn"')
+#db.commit()
 
 #for each in contents:
 #  print (each['firstname'])
 
 #db.commit()
+
+#db.execute('delete from person where age < 18')
+#db.commit()
+#table = db.execute('select * from person')
+#for each in table:
+#  print(each)
