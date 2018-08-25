@@ -10,11 +10,11 @@ operators = {
   "x" : (lambda a, b: a * b)
 }
 
-def rpn(expression):
-  tokens = expression.split()
+def eval_rpn(expression):
+  """ Calculate a Reverse Polish Notation sequence """
   stack = []
 
-  for token in tokens:
+  for token in expression.split(' '):
     if token in operators:
       # pull off the last 2 entries on the stack
       num2 = stack.pop()
@@ -29,6 +29,4 @@ def rpn(expression):
 
   return stack.pop()
 
-#print(rpn(input_string))
-
-print(rpn(input_string))
+print(eval_rpn(input_string))
