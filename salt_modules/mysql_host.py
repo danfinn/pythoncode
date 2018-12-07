@@ -1,6 +1,6 @@
 __virtualname__ = 'mysql_host'
 __author__ = "Dan Finn"
-__version__ = "0.1"
+__version__ = "0.2"
 
 import os
 from operator import itemgetter
@@ -30,7 +30,7 @@ def is_mysql_running():
 def count():
     is_mysql_running()
 
-    output = __salt__['cmd.run']("mysqladmin --defaults-file=/root/.my.cnf proc |grep -E 'Sleep|Query' |cut -d'|' -f4 |grep -v localhost|cut -d: -f1",python_shell=True).splitlines()
+    output = __salt__['cmd.run']("mysqladmin --defaults-file=/root/.my.cnf proc |awk -F'|' '/Sleep|Query/ && !/localhost/{print $4}'|cut -d: -f1",python_shell=True).splitlines()
 
     host_totals = {}
     return_output = []
