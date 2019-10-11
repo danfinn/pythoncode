@@ -16,7 +16,7 @@ def create_pyramid(character, size):
             print character * loop_counter
             loop_counter += 1
             if (loop_counter == size):
-                # Flip the increment counter and print the top of the pyramid
+                # You've reached the top, start heading down the other side
                 print character * loop_counter
                 increment = 0
         else:
