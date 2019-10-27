@@ -7,6 +7,7 @@ file = open('sample_log.txt', 'r')
 count = {}
 
 for line in file:
+	# We want to drop the seconds, ie Oct 27 02:20
 	datestamp = line[:12]
 	if not datestamp in count:
 		count[datestamp] = 1
